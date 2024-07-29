@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logico</title>
+</head>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+    <div class="main" style="position:absolute; left:50%; top: 50%; transform: translate(-50% , -50%); background-color: #efeded;color: white; padding: 20px 25px; border-radius: 10px; ">
+        <div class="msg"></div>
+        <div>
+            <div style="display: flex;flex-direction: row; align-items: center; gap: 10px;">
+                <img src="تصميم بدون عنوان (9).png" width="50px" height="50px" alt="" srcset="" style="border-radius: 5px;">
+                <h2 style="color: black;">Transform</h2>
+            </div>
+            <h3 style="color: #ca0404;">Request to Delete Transform App Account </h3>
+            <h4 style="color: #c9ab02;">NOTE : All your data will be permanently deleted 90 days after your account deletion request. During this period, you can cancel the deletion request.</h4>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;gap: 10px;">
+                <input class="user" type="text" placeholder="user Name" style="width: 70%;height: 25px; padding: 5px 10px; border: blue 1px solid;   border-radius: 5px;">
+                <input class="pass" type="text" placeholder="Password" style="width: 70%;height: 25px; padding: 5px 10px;border: blue 1px solid; border-radius: 5px; ">
+                <input class="email" type="text" placeholder="Gmail To Contact You With Response" style="width: 70%;height: 25px; padding: 5px 10px;border: blue 1px solid; border-radius: 5px; ">
+                <button onclick="deleteAccount()" style="cursor:pointer; font-weight: bold; width: 74%;height: 30px; padding: 5px 10px; background-color: #ca0404; color: white; border: 0; border-radius: 5px; ">Delete Acount</button>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+ @media (max-width:747px){ 
+    .main{width:440px;}
+}
+ @media (max-width:535px){ 
+    .main{width:340px;}
+}
+ @media (max-width:407px){ 
+    .main{width:280px;}
+}
+
+</style>
+<script>
+    const userName =  document.querySelector( ".user" );
+    const pass = document.querySelector( ".pass" );
+    const email = document.querySelector( ".email" );
+    const msg = document.querySelector( ".msg" );
+    const btn = document.getElementsByTagName('button');
+    function deleteAccount(){
+        console.log(userName.value);
+        console.log(pass.value);
+        if (String(userName.value).toLowerCase() == "logico" && pass.value == "123" && email.value != ""){
+            msg.innerHTML=`<h4 style="color:red;">This account is in demo mode and cannot be removed !</h4>`
+        }
+        else if(String(userName.value).toLowerCase() == "" && pass.value == "" && email.value == "") {
+            msg.innerHTML=`<h4 style="color:red;">Please complete all required fields  !</h4>`
+        }
+        else{
+              msg.innerHTML=`<h4 style="color:red;">User name OR Password  is not correct !</h4>`
+        }
+    } 
+</script>
+</html>
